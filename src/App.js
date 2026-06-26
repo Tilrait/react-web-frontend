@@ -7,6 +7,7 @@ import { TokenContext } from './utility.js';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import TodoDetail from './TodoDetail.js';
 import TodoAdd from './TodoAdd.js';
+import DeleteAcc from './DeleteAcc.js'
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -36,6 +37,9 @@ function App() {
               <Link to="/add">
                 <span>Добавить дело</span>
               </Link>
+              <Link to="/delete" className='warning button'>
+                <span>Удалить аккаунт</span>
+              </Link>
             </>
           )}
           {!token && (
@@ -57,6 +61,7 @@ function App() {
           <Route path="/login" element={<Login updateToken={updateToken} />} />
           <Route path="/register" element={<Register updateToken={updateToken} />} />
           <Route path="/add" element={<TodoAdd />} />
+          <Route path="/delete" element={<DeleteAcc updateToken={updateToken} />} />
           <Route path="/:id" element={<TodoDetail />} />
           <Route path="/" element={<TodoList />} />
         </Routes>
