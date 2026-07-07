@@ -27,10 +27,10 @@ export default function TodoDetail() {
         <>
           <h1>{todo.title}</h1>
           {todo.desc && <p>{todo.desc}</p>}
-          <p className="datetime">Создано: {new Date(todo.createdAt).toLocaleString()}</p>
-          <p className="addendum">
+          {todo.addendum && <p className="addendum">
             <img src={`${baseURL}/uploaded/${todo.addendum}`} alt="" />
-          </p>
+          </p>}
+          <p className="datetime">Создано: {new Date(todo.createdAt).toLocaleString()}</p>
         </>
       )}
     </>
